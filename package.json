@@ -3,17 +3,29 @@
   "version": "1.0.1",
   "description": "",
   "main": "index.js",
+  "bin": "src/index.js",
   "scripts": {
-    "start": "node -r dotenv/config index.js"
+    "start": "node -r dotenv/config src/index.js",
+    "build": "pkg ."
   },
   "keywords": [],
   "author": "Sebastiaan Jansen",
   "license": "ISC",
+  "pkg": {
+    "scripts": "build/**/*.js",
+    "targets": [
+      "node18-macos-arm64",
+      "node18-linux-arm64",
+      "node18-linux-x64"
+    ],
+    "outputPath": "dist"
+  },
   "dependencies": {
     "discord.js": "^14.7.1",
     "wol": "^1.0.7"
   },
   "devDependencies": {
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "pkg": "^5.8.0"
   }
 }
